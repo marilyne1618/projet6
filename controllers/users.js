@@ -44,11 +44,12 @@ async function logUser(req, res) {
     }
 }
 
-// Création d'un token pour éviter de ressaisir ses identifiants avec une date d'expiration
+// Création d'un token pour éviter de ressaisir ses identifiants
 function createToken(email) {
     // mot de passe se trouvant dans le fichier .env
     const jwtPassword = process.env.JWT
-    return token = jwt.sign({ email: email }, jwtPassword, { expiresIn: "24h" })
+    return token = jwt.sign({ email: email }, jwtPassword)
 }
 
+// Exportation des fonctions dans le fichier index.js
 module.exports = { createUser, logUser }
